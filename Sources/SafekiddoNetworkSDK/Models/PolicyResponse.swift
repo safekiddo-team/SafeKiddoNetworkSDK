@@ -1,21 +1,22 @@
 import Foundation
 
-struct PolicyResponse: Codable {
-    let requestId: UUID?
-    let resource: String?
-    let resourceType: ResourceType?
-    let subject: String?
-    let subjectType: SubjectType?
-    let apiKey: String?
-    let engines: [String]?
-    let resultOperator: ResultOperator?
-    let logRequest: Bool?
+// MARK: – RESPONSE
 
-   
-    let partner: String?
-    let result: PolicyResult?
+public struct PolicyResponse: Codable {
+    public let requestId: UUID?
+    public let resource: String?
+    public let resourceType: ResourceType?
+    public let subject: String?
+    public let subjectType: SubjectType?
+    public let apiKey: String?
+    public let engines: [String]?
+    public let resultOperator: ResultOperator?
+    public let logRequest: Bool?
 
-    enum CodingKeys: String, CodingKey {
+    public let partner: String?
+    public let result: PolicyResult?
+
+    enum CodingKeys: String, CodingKey {            // może zostać internal
         case requestId      = "request_id"
         case resource
         case resourceType   = "resource_type"
@@ -30,14 +31,16 @@ struct PolicyResponse: Codable {
     }
 }
 
-struct EngineResult: Codable {
-    let engine: String
-    let categoryId: Int
-    let categoryName: String
-    let subcategoryId: Int
-    let subcategoryName: String
-    let resultCode: Int
-    
+// MARK: – ENGINE RESULT
+
+public struct EngineResult: Codable {
+    public let engine: String
+    public let categoryId: Int
+    public let categoryName: String
+    public let subcategoryId: Int
+    public let subcategoryName: String
+    public let resultCode: Int
+
     enum CodingKeys: String, CodingKey {
         case engine
         case categoryId       = "category_id"
@@ -48,14 +51,16 @@ struct EngineResult: Codable {
     }
 }
 
+// MARK: – DECISION
 
-struct Decision: Codable {
-    let action: ResultAction
-    let engines: [EngineResult]
+public struct Decision: Codable {
+    public let action: ResultAction
+    public let engines: [EngineResult]
 }
 
+// MARK: – POLICY RESULT
 
-struct PolicyResult: Codable {
-    let url: Decision?
-    let application: Decision?
+public struct PolicyResult: Codable {
+    public let url: Decision?
+    public let application: Decision?
 }

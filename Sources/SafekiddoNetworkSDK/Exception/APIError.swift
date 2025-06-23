@@ -1,12 +1,12 @@
 import Foundation
 
-enum APIError: Error, LocalizedError {
+public enum APIError: Error, LocalizedError {
     case unauthorized
     case invalidResponse
     case networkError
     case unknown(Error)
     
-    var errorDescription: String? {
+   public var errorDescription: String? {
         switch self {
         case .unauthorized: return "Unauthorized: Invalid API key"
         case .invalidResponse: return "The server returned an invalid response"

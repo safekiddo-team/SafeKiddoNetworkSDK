@@ -44,7 +44,7 @@ public final class PolicyManagerClient {
     // MARK: - Public API (completion handler only)
 
     @discardableResult
-     func checkPolicy(
+    public func checkPolicy(
         request: PolicyRequest,
         timeoutMs: Int? = nil,
         queue: DispatchQueue = .main,
