@@ -2,7 +2,8 @@ import Foundation
 
 public struct SafekiddoRequest: Codable {
     public let requestId: UUID?
-    public let resource: String
+    public let resource: String?
+    public let url: String?
     public let resourceType: ResourceType?
     public let subject: String?
     public let subjectType: SubjectType?
@@ -14,7 +15,8 @@ public struct SafekiddoRequest: Codable {
     
     public init(
         requestId: UUID? = nil,
-        resource: String,
+        resource: String? = nil,
+        url: String? = nil,
         resourceType: ResourceType? = nil,
         subject: String? = nil,
         subjectType: SubjectType? = nil,
@@ -26,6 +28,7 @@ public struct SafekiddoRequest: Codable {
     ) {
         self.requestId      = requestId
         self.resource       = resource
+        self.url            = url
         self.resourceType   = resourceType
         self.subject        = subject
         self.subjectType    = subjectType
@@ -39,6 +42,7 @@ public struct SafekiddoRequest: Codable {
     enum CodingKeys: String, CodingKey {
         case requestId      = "request_id"
         case resource
+        case url
         case resourceType   = "resource_type"
         case subject
         case subjectType    = "subject_type"
