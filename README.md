@@ -71,8 +71,8 @@ final class PolicyManagerViewModel: ObservableObject {
 
     init() {
         self.client = PolicyManagerClient(
-            baseUrl: URL(string: "https://nask-cat.safekiddo.net")!,
-            apiKey: "PZLrjMfJxLLbpLrd",
+            baseUrl: URL(string: "www.api.example.com")!,
+            apiKey: "key",
             pinnedCertificateNames: ["myCert"],
             enableSSLPinning: true
         )
