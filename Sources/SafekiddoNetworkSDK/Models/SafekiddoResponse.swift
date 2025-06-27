@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: – RESPONSE
 
-public struct PolicyResponse: Codable {
+public struct SafekiddoResponse: Codable {
     public let requestId: UUID?
     public let resource: String?
     public let resourceType: ResourceType?
@@ -16,7 +16,7 @@ public struct PolicyResponse: Codable {
     public let partner: String?
     public let result: PolicyResult?
 
-    enum CodingKeys: String, CodingKey {            // może zostać internal
+    enum CodingKeys: String, CodingKey {            
         case requestId      = "request_id"
         case resource
         case resourceType   = "resource_type"

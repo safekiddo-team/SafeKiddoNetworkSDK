@@ -1,26 +1,28 @@
 import Foundation
 
-public struct PolicyRequest: Codable {
+public struct SafekiddoRequest: Codable {
     public let requestId: UUID?
     public let resource: String
     public let resourceType: ResourceType
     public let subject: String
     public let subjectType: SubjectType
-    public let apiKey: String?
+    public let apiKey: String
     public let engines: [String]
     public let resultOperator: ResultOperator?
     public let logRequest: Bool?
-
+    public let correlationId: String?
+    
     public init(
         requestId: UUID? = nil,
         resource: String,
         resourceType: ResourceType,
         subject: String,
         subjectType: SubjectType,
-        apiKey: String? = nil,
+        apiKey: String,
         engines: [String],
         resultOperator: ResultOperator? = nil,
-        logRequest: Bool? = nil
+        logRequest: Bool? = nil,
+        correlationId: String? = nil
     ) {
         self.requestId      = requestId
         self.resource       = resource
@@ -31,5 +33,19 @@ public struct PolicyRequest: Codable {
         self.engines        = engines
         self.resultOperator = resultOperator
         self.logRequest     = logRequest
+        self.correlationId  = correlationId
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case requestId      = "request_id"
+        case resource
+        case resourceType   = "resource_type"
+        case subject
+        case subjectType    = "subject_type"
+        case apiKey         = "api_key"
+        case engines
+        case resultOperator = "result_operator"
+        case logRequest     = "log_request"
+        case correlationId
     }
 }
