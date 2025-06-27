@@ -3,9 +3,9 @@ import Foundation
 public struct SafekiddoRequest: Codable {
     public let requestId: UUID?
     public let resource: String
-    public let resourceType: ResourceType
-    public let subject: String
-    public let subjectType: SubjectType
+    public let resourceType: ResourceType?
+    public let subject: String?
+    public let subjectType: SubjectType?
     public let apiKey: String
     public let engines: [String]
     public let resultOperator: ResultOperator?
@@ -15,9 +15,9 @@ public struct SafekiddoRequest: Codable {
     public init(
         requestId: UUID? = nil,
         resource: String,
-        resourceType: ResourceType,
-        subject: String,
-        subjectType: SubjectType,
+        resourceType: ResourceType? = nil,
+        subject: String? = nil,
+        subjectType: SubjectType? = nil,
         apiKey: String,
         engines: [String],
         resultOperator: ResultOperator? = nil,

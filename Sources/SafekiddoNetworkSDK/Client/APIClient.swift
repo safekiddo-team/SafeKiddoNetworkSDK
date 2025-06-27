@@ -37,7 +37,7 @@ public final class APIClient: NSObject, URLSessionDelegate, @unchecked Sendable 
         headers: [String: String]? = nil,
         completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
-        // Budowanie URL bez nadpisywania ścieżki baseURL
+    
         let trimmedEndpoint = endpoint.hasPrefix("/") ? String(endpoint.dropFirst()) : endpoint
         let url = baseURL.appendingPathComponent(trimmedEndpoint)
         
